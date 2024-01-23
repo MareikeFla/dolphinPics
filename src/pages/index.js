@@ -1,8 +1,11 @@
-import Footer from "@/Components/Footer";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import Navigation from "../Components/Navigation";
-import React from "react";
-import Month from "./[slug]";
 
-export default function main() {
-  return <Navigation></Navigation>;
+export default function Main() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/january");
+  }, [router]);
 }
