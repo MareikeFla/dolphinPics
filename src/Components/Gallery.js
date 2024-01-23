@@ -29,7 +29,6 @@ export default function Gallery({
             height={Number(pic.height) * 0.12}
             alt={pic.alt}
             quality={30}
-            priority={true}
             loading="eager"
             className={
               selectedPicture.picpath === pic.picpath
