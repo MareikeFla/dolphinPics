@@ -33,7 +33,8 @@ export default function Gallery({
               windowWidth < 1023 ? Number(pic.height) : Number(pic.width) * 0.12
             }
             alt={pic.alt}
-            quality={30}
+            quality={40}
+            loading="eager"
             className={
               selectedPicture.picpath === pic.picpath
                 ? "my-2 cursor-pointer w-[90%] h-auto"
