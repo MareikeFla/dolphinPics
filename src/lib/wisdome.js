@@ -50,9 +50,7 @@ export const wisdome = [
   {
     joke: "Dolphins don't need machine learning. They just stare at the computer until it programs itself.",
   },
-  {
-    joke: "A dolphin's idea of a 'binary' system is whether to jump over the waves or swim under them. Either way, their code still runs flawlessly.",
-  },
+
   {
     joke: "Dolphins don't do code reviews. They do ocean reviews, where they check if the sea level is rising up to their standards of coding.",
   },

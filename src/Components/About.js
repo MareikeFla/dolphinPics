@@ -15,7 +15,8 @@ export default function About() {
             </Link>{" "}
             course ffm-web-23-6, cheerfully curated by Mareike, an unofficial
             dolphin whisperer! Behold my debut tech-splash, a Next-Js powered
-            extravaganza!
+            extravaganza! I used ChatGpt 4.0, DALL-E and Midjourney to create
+            the pictures.
           </p>
           <div className="px-10">
             <p className="mb-5">

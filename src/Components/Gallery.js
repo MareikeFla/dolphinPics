@@ -20,7 +20,7 @@ export default function Gallery({
           <h2 className="text-white text-lg">{selectedPicture.date}</h2>
         )}
       </div>
-      <div className="col-start-6 col-span-full overflow-scroll overflow-x-hidden h-[76vh] flex flex-col items-center Gallery-Pictures">
+      <div className="col-start-6 col-span-full overflow-scroll overflow-x-hidden h-[73vh] flex flex-col items-center Gallery-Pictures">
         {filteredPicturesInfo.map((pic) => (
           <Image
             key={pic.picpath}
