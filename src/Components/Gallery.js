@@ -6,6 +6,7 @@ export default function Gallery({
   selectedPicture,
   setSelectedPicture,
   filteredPicturesInfo,
+  windowWidth,
 }) {
   return (
     <main className="col-start-1 col-span-full grid grid-cols-6  gap-10 row-span-1 lg:px-20">
@@ -25,10 +26,10 @@ export default function Gallery({
           <Image
             key={pic.picpath}
             src={`/pics/${pic.month}/${pic.picpath}`}
-            width={Number(pic.width) * 0.12}
-            height={Number(pic.height) * 0.12}
+            width={Number(pic.width)}
+            height={Number(pic.height)}
             alt={pic.alt}
-            quality={60}
+            quality={30}
             loading="eager"
             className={
               selectedPicture.picpath === pic.picpath

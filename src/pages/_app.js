@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 
 export default function App({ Component, pageProps }) {
-  const [picturesInfo, setPicturesInfo] = useState([]);
-
   const [selectedPicture, setSelectedPicture] = useState({
     month: "january",
     picpath: "08012024.png",
@@ -14,6 +12,7 @@ export default function App({ Component, pageProps }) {
     ratio: 1,
   });
 
+  const [picturesInfo, setPicturesInfo] = useState([]);
   useEffect(() => {
     async function readCSV() {
       try {
@@ -37,6 +36,21 @@ export default function App({ Component, pageProps }) {
     readCSV();
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    if (typeof window !== "undefined") {
+      handleResize();
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Component
       {...pageProps}
@@ -44,6 +58,7 @@ export default function App({ Component, pageProps }) {
       setPicturesInfo={setPicturesInfo}
       selectedPicture={selectedPicture}
       setSelectedPicture={setSelectedPicture}
+      windowWidth={windowWidth}
     />
   );
 }

@@ -1,10 +1,22 @@
 import Link from "next/link";
 import { slugInfo } from "@/slugInfo";
 
-export default function Navigation({ currentMonth, onClickNavigation }) {
+export default function Navigation({
+  currentMonth,
+  onClickNavigation,
+  windowWidth,
+}) {
+  let filteredNavigationMonth = slugInfo.filter((slug) => {
+    return slug.slug !== "about";
+  });
+  if (windowWidth < 1023) {
+    filteredNavigationMonth = filteredNavigationMonth.filter((slug) => {
+      return slug.hasPics === true;
+    });
+  }
   return (
     <>
-      {slugInfo.map((month) => {
+      {filteredNavigationMonth.map((month) => {
         return (
           <Link
             className={
