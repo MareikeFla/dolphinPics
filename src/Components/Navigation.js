@@ -9,7 +9,7 @@ export default function Navigation({
   let filteredNavigationMonth = slugInfo.filter((slug) => {
     return slug.slug !== "about";
   });
-  if (windowWidth < 1023) {
+  if (windowWidth < 1031) {
     filteredNavigationMonth = filteredNavigationMonth.filter((slug) => {
       return slug.hasPics === true;
     });

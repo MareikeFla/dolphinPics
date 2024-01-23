@@ -12,6 +12,11 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      textAdjust: {
+        none: "-webkit-text-size-adjust: none;",
+        auto: "-webkit-text-size-adjust: auto;",
+        100: "-webkit-text-size-adjust: 100%;",
+      },
     },
   },
   plugins: [],
