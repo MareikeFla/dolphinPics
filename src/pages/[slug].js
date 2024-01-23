@@ -78,8 +78,8 @@ export default function Month({ startMonth }) {
   );
   return (
     <>
-      <header className="flex justify-center flex-col col-start-1 col-span-full row-span-1 px-20  ">
-        <h1 className="text-cyan-600 text-2xl  ">Daily Dolphin Archive</h1>
+      <header className="flex justify-center flex-col sm:col-start-1 sm:col-span-full row-span-1 lg:px-20 sm:text-lg lg:text-2xl   ">
+        <h1 className="text-cyan-600  ">Daily Dolphin Archive</h1>
         <div>
           <Navigation
             currentMonth={currentMonth.slug}

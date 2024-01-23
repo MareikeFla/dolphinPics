@@ -2,9 +2,9 @@ import Link from "next/link";
 export default function About() {
   return (
     <>
-      <main className="col-start-1 col-span-full grid grid-cols-6  gap-10 row-span-1 px-20">
-        <div className=" text-white px-20 col-start-1 col-span-5 flex flex-col h-[76vh]  shadow-[0_0_20px_1px_white] ">
-          <p className="my-10 ">
+      <main className="col-start-1 col-span-full grid grid-cols-6  gap-10 row-span-1 lg:px-20">
+        <div className=" text-white lg:px-20 col-start-1 col-span-full lg:col-span-5 lg:flex lg:flex-col lg:h-[76vh]  lg:shadow-[0_0_20px_1px_white] ">
+          <p className="mb-3 lg:my-10 ">
             Welcome to the most fin-tastic archive ever - the Dolphin Picture
             Gallery of the{" "}
             <Link
@@ -15,17 +15,17 @@ export default function About() {
             </Link>{" "}
             course ffm-web-23-6, cheerfully curated by Mareike, an unofficial
             dolphin whisperer! Behold my debut tech-splash, a Next-Js powered
-            extravaganza! I used ChatGpt 4.0, DALL-E and Midjourney to create
+            extravaganza! I used ChatGPT 4.0, DALL-E and Midjourney to create
             the pictures.
           </p>
-          <div className="px-10">
-            <p className="mb-5">
+          <div className="px-4 lg:px-10">
+            <p className="mb-3">
               Version 1.0 (23.01.2023) - where coding met dolphins and they did
               a tail flip together.
             </p>
 
-            <p>
-              - Styled with{" "}
+            <p className="mb-3">
+              - Styled with
               <Link
                 className="text-cyan-600 underline"
                 href={"https://tailwindcss.com/"}

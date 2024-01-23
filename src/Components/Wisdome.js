@@ -7,7 +7,7 @@ export default function Wisdome() {
 
   return (
     <>
-      <p className="col-span-3 text-gray-400 text-lg italic text-nowrap ">
+      <p className="hidden lg:flex col-span-3 text-gray-400 text-lg italic text-nowrap ">
         ~ {randomJoke.joke} ~
       </p>
     </>
