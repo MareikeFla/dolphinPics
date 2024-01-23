@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useFloating, autoUpdate } from "@floating-ui/react";
 
 export default function BigPicture({ selectedPicture }) {
   if (!selectedPicture) {
@@ -7,7 +6,7 @@ export default function BigPicture({ selectedPicture }) {
   }
 
   return (
-    <div className="h-[70vh] flex justify-center items-center">
+    <div className=" h-[70vh] flex justify-center items-center">
       <Image
         src={`/pics/${selectedPicture.month}/${selectedPicture.picpath}`}
         width={selectedPicture.width}
@@ -16,7 +15,7 @@ export default function BigPicture({ selectedPicture }) {
         alt={selectedPicture.alt}
         loading="eager"
         priority={true}
-        quality={20}
+        quality={40}
       ></Image>
     </div>
   );

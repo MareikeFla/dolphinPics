@@ -10,6 +10,7 @@ export default function Month({
   picturesInfo,
   selectedPicture,
   setSelectedPicture,
+  windowWidth,
 }) {
   const router = useRouter();
   let { slug } = router.query;
@@ -46,12 +47,14 @@ export default function Month({
       <Header
         currentMonth={currentMonth}
         handleNavigationClick={handleNavigationClick}
+        windowWidth={windowWidth}
       ></Header>
       {slug !== "about" ? (
         <Gallery
           filteredPicturesInfo={filteredPicturesInfo}
           selectedPicture={selectedPicture}
           setSelectedPicture={setSelectedPicture}
+          windowWidth={windowWidth}
         ></Gallery>
       ) : (
         <About></About>
