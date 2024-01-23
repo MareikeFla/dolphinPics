@@ -34,7 +34,6 @@ export default function Gallery({
             }
             alt={pic.alt}
             quality={30}
-            loading="eager"
             className={
               selectedPicture.picpath === pic.picpath
                 ? "my-2 cursor-pointer w-[90%] h-auto"
