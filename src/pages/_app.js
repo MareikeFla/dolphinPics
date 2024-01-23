@@ -5,7 +5,7 @@ import Papa from "papaparse";
 export default function App({ Component, pageProps }) {
   const [selectedPicture, setSelectedPicture] = useState({
     month: "january",
-    picpath: "08012024.png",
+    picpath: "08012024.webp",
     width: 1024,
     height: 1024,
     alt: "",

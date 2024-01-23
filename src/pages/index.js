@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import Navigation from "../Components/Navigation";
+import { useEffect } from "react";
 
 export default function Main() {
   const router = useRouter();
