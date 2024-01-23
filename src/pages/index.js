@@ -4,5 +4,5 @@ import React from "react";
 import Month from "./[slug]";
 
 export default function main() {
-  return <Month startMonth={"january"}></Month>;
+  return <Navigation></Navigation>;
 }
