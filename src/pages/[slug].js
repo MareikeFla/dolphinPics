@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { monthInfo } from "@/monthInfo";
+import { slugInfo } from "@/slugInfo";
 import Gallery from "../Components/Gallery";
 import React from "react";
 import { useState } from "react";
@@ -7,19 +7,20 @@ import { useEffect } from "react";
 import Papa from "papaparse";
 import Footer from "@/Components/Footer";
 import Navigation from "@/Components/Navigation";
+import About from "@/Components/About";
 
-export default function Month() {
+export default function Month({ startMonth }) {
   const [picturesInfo, setPicturesInfo] = useState([]);
   const [selectedPicture, setSelectedPicture] = useState({
     month: "january",
-    picpath: "16012024.png",
+    picpath: "08012024.png",
     width: 1024,
     height: 1024,
     alt: "",
     ratio: 1,
   });
   const router = useRouter();
-  const { slug } = router.query;
+  let { slug } = router.query;
 
   useEffect(() => {
     async function readCSV() {
@@ -34,7 +35,6 @@ export default function Month() {
           header: true,
           complete: (result) => {
             setPicturesInfo(result.data);
-            console.log(result.data);
           },
         });
       } catch (error) {
@@ -46,6 +46,8 @@ export default function Month() {
   }, []);
 
   function handleNavigationClick(month) {
+    const container = document.querySelector(".Gallery-Pictures");
+    container.scrollTo(0, 0);
     const copyPicturesInfo = [...picturesInfo];
     const filteredPicturesInfo = copyPicturesInfo.filter(
       (p) => p.month === month
@@ -60,7 +62,11 @@ export default function Month() {
       picturesInfo[Math.floor(Math.random() * picturesInfo.length)];
     setSelectedPicture(randomPicture);
   }
-  let currentMonth = monthInfo.find((month) => month.slug === slug);
+  if (!slug) {
+    slug = startMonth;
+  }
+
+  const currentMonth = slugInfo.find((month) => month.slug === slug);
 
   if (!currentMonth) {
     return;
@@ -72,20 +78,24 @@ export default function Month() {
   );
   return (
     <>
-      <header className="m-2 flex justify-center">
-        <h1 className="text-cyan-600 text-3xl">
-          Daily Dolphin Archive -{" "}
+      <header className="flex items-center col-start-1 col-span-full row-span-1 px-20 ">
+        <h1 className="text-cyan-600 text-2xl">
+          Daily Dolphin Archive -
           <Navigation
             currentMonth={currentMonth.slug}
             onClickNavigation={handleNavigationClick}
           ></Navigation>
         </h1>
       </header>
-      <Gallery
-        filteredPicturesInfo={filteredPicturesInfo}
-        selectedPicture={selectedPicture}
-        setSelectedPicture={setSelectedPicture}
-      ></Gallery>
+      {slug !== "about" ? (
+        <Gallery
+          filteredPicturesInfo={filteredPicturesInfo}
+          selectedPicture={selectedPicture}
+          setSelectedPicture={setSelectedPicture}
+        ></Gallery>
+      ) : (
+        <About></About>
+      )}
       <Footer></Footer>
     </>
   );
