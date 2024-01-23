@@ -16,7 +16,7 @@ export default function BigPicture({ selectedPicture }) {
         alt={selectedPicture.alt}
         loading="eager"
         priority={true}
-        quality={30}
+        quality={20}
       ></Image>
     </div>
   );

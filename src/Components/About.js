@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function About() {
   return (
     <>
@@ -5,9 +6,16 @@ export default function About() {
         <div className=" text-white px-20 col-start-1 col-span-5 flex flex-col h-[76vh]  shadow-[0_0_20px_1px_white] ">
           <p className="my-10 ">
             Welcome to the most fin-tastic archive ever - the Dolphin Picture
-            Gallery of the neueFische course ffm_web, cheerfully curated by
-            Mareike, an unofficial dolphin whisperer! Behold my debut
-            tech-splash, a Next-Js powered extravaganza!
+            Gallery of the{" "}
+            <Link
+              href={"https://www.neuefische.de/"}
+              className="text-cyan-600 underline"
+            >
+              neueFische
+            </Link>{" "}
+            course ffm-web-23-6, cheerfully curated by Mareike, an unofficial
+            dolphin whisperer! Behold my debut tech-splash, a Next-Js powered
+            extravaganza!
           </p>
           <div className="px-10">
             <p className="mb-5">
@@ -16,13 +24,25 @@ export default function About() {
             </p>
 
             <p>
-              - Styled with Tailwind - because even dolphins appreciate a bit of
-              flair.
+              - Styled with{" "}
+              <Link
+                className="text-cyan-600 underline"
+                href={"https://tailwindcss.com/"}
+              >
+                Tailwind
+              </Link>{" "}
+              - because even dolphins appreciate a bit of flair.
             </p>
             <p className="mb-10">
-              - And guess what? I used PapaParse to import image-infos from a
-              CSV, because who says dolphins and data can`t swim in the same
-              tech-ocean?
+              - And guess what? I used{" "}
+              <Link
+                className="text-cyan-600 underline"
+                href={"https://www.papaparse.com/"}
+              >
+                PapaParse
+              </Link>{" "}
+              to import image-infos from a CSV, because who says dolphins and
+              data can`t swim in the same tech-ocean?
             </p>
           </div>
           <p>
