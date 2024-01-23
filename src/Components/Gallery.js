@@ -26,8 +26,12 @@ export default function Gallery({
           <Image
             key={pic.picpath}
             src={`/pics/${pic.month}/${pic.picpath}`}
-            width={Number(pic.width)}
-            height={Number(pic.height)}
+            width={
+              windowWidth < 1023 ? Number(pic.width) : Number(pic.width) * 0.12
+            }
+            height={
+              windowWidth < 1023 ? Number(pic.height) : Number(pic.width) * 0.12
+            }
             alt={pic.alt}
             quality={30}
             loading="eager"

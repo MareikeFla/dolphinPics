@@ -2,8 +2,8 @@ import Link from "next/link";
 export default function About() {
   return (
     <>
-      <main className="col-start-1 col-span-full grid grid-cols-6  gap-10 row-span-1 px-20">
-        <div className=" text-white px-20 col-start-1 col-span-5 flex flex-col h-[76vh]  shadow-[0_0_20px_1px_white] ">
+      <main className="col-start-1 col-span-full grid grid-cols-6  gap-10 row-span-1 lg:px-20">
+        <div className=" text-white w-full px-20 col-start-1 col-span-full flex flex-col lg:h-[76vh]  lg:shadow-[0_0_20px_1px_white] ">
           <p className="my-10 ">
             Welcome to the most fin-tastic archive ever - the Dolphin Picture
             Gallery of the{" "}
