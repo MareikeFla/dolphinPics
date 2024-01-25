@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import { wisdom } from "@/lib/wisdom";
 
 export default function App({ Component, pageProps }) {
+  console.log("App start");
   const [selectedPicture, setSelectedPicture] = useState({
     month: "january",
     picpath: "08012024.webp",
@@ -12,8 +13,9 @@ export default function App({ Component, pageProps }) {
     alt: "",
     initial: true,
   });
+  console.log("App start: ", selectedPicture);
+
   const [picturesInfo, setPicturesInfo] = useState([]);
-  console.log("1: ", picturesInfo);
 
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
 
@@ -29,6 +31,9 @@ export default function App({ Component, pageProps }) {
   }
 
   useEffect(() => {
+    console.log("App useEffect start");
+    console.log("App useEffect start: ", selectedPicture);
+
     async function readCSV() {
       try {
         const response = await fetch("/pictureInfo.csv");
@@ -48,7 +53,6 @@ export default function App({ Component, pageProps }) {
       }
     }
     readCSV();
-    console.log("2: ", picturesInfo);
 
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -59,11 +63,15 @@ export default function App({ Component, pageProps }) {
     }
 
     window.addEventListener("resize", handleResize);
+    console.log("App useEffect end");
+    console.log("App useEffect end: ", selectedPicture);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const [windowWidth, setWindowWidth] = useState(0);
+  console.log("App end");
+  console.log("App  end: ", selectedPicture);
 
   return (
     <Component
