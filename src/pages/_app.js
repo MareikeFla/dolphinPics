@@ -10,6 +10,7 @@ export default function App({ Component, pageProps }) {
     width: 1024,
     height: 1024,
     alt: "",
+    initial: true,
   });
 
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
