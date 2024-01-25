@@ -8,11 +8,14 @@ function scrollContainer() {
   }
 }
 
-export default function Navigation({ currentMonth, windowWidth }) {
+export default function Navigation({ currentMonth, windowWidth, router }) {
   let filteredNavigationMonth = slugInfos.filter((slug) => {
     return slug.slug !== "about";
   });
   if (windowWidth < 1031) {
+    if (!currentMonth.hasPics) {
+      router.push("/november");
+    }
     filteredNavigationMonth = filteredNavigationMonth.filter((slug) => {
       return slug.hasPics === true;
     });
@@ -23,7 +26,7 @@ export default function Navigation({ currentMonth, windowWidth }) {
         return (
           <Link
             className={
-              currentMonth === month.month
+              currentMonth.month === month.month
                 ? " text-cyan-600 lg:text-2xl mr-3 lg:mr-5  drop-shadow-[0_13px_8px_#67E8F9]  "
                 : "text-neutral-300 lg:text-2xl mr-3 lg:mr-5  hover:drop-shadow-[0_13px_8px_#67E8F9] "
             }

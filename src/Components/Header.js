@@ -1,6 +1,6 @@
 import Navigation from "./Navigation";
 
-export default function Header({ currentMonth, windowWidth }) {
+export default function Header({ currentMonth, windowWidth, router }) {
   return (
     <>
       <header className="flex justify-center flex-col col-start-1 col-span-full lg:row-span-1 px-10 lg:px-20 text-lg lg:text-2xl  ">
@@ -9,6 +9,7 @@ export default function Header({ currentMonth, windowWidth }) {
           <Navigation
             currentMonth={currentMonth}
             windowWidth={windowWidth}
+            router={router}
           ></Navigation>
         </div>
       </header>
