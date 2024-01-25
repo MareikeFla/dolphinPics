@@ -12,8 +12,8 @@ export default function App({ Component, pageProps }) {
     alt: "",
     initial: true,
   });
-
-  console.log(selectedPicture);
+  const [picturesInfo, setPicturesInfo] = useState([]);
+  console.log("1: ", picturesInfo);
 
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
 
@@ -27,8 +27,6 @@ export default function App({ Component, pageProps }) {
       setSelectedPicture(picture);
     }
   }
-
-  const [picturesInfo, setPicturesInfo] = useState([]);
 
   useEffect(() => {
     async function readCSV() {
@@ -50,6 +48,7 @@ export default function App({ Component, pageProps }) {
       }
     }
     readCSV();
+    console.log("2: ", picturesInfo);
 
     function handleResize() {
       setWindowWidth(window.innerWidth);
