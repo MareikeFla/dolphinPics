@@ -13,6 +13,8 @@ export default function App({ Component, pageProps }) {
     initial: true,
   });
 
+  console.log(selectedPicture);
+
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
 
   function selectWisdom() {
