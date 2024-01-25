@@ -35,7 +35,7 @@ export default function Month({
     return null;
   }
   if (!selectedPicture) {
-    return;
+    return <p>no selected pic</p>;
   }
 
   return (
