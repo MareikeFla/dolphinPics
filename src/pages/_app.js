@@ -1,18 +1,26 @@
 import "@/styles/globals.css";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
+import { wisdom } from "@/lib/wisdom";
 
 export default function App({ Component, pageProps }) {
-  const [selectedPicture, setSelectedPicture] = useState({
-    month: "january",
-    picpath: "08012024.webp",
-    width: 1024,
-    height: 1024,
-    alt: "",
-    ratio: 1,
-  });
+  const [selectedPicture, setSelectedPicture] = useState(null);
+
+  const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
+
+  function selectWisdom() {
+    return wisdom[Math.floor(Math.random() * wisdom.length)];
+  }
+
+  function handleSetSelectedPicture(picture) {
+    setSelectedWisdom(selectWisdom());
+    if (picture) {
+      setSelectedPicture(picture);
+    }
+  }
 
   const [picturesInfo, setPicturesInfo] = useState([]);
+
   useEffect(() => {
     async function readCSV() {
       try {
@@ -32,13 +40,8 @@ export default function App({ Component, pageProps }) {
         console.error("Error reading CSV: ", error);
       }
     }
-
     readCSV();
-  }, []);
 
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
     function handleResize() {
       setWindowWidth(window.innerWidth);
     }
@@ -48,8 +51,11 @@ export default function App({ Component, pageProps }) {
     }
 
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const [windowWidth, setWindowWidth] = useState(0);
 
   return (
     <Component
@@ -57,8 +63,9 @@ export default function App({ Component, pageProps }) {
       picturesInfo={picturesInfo}
       setPicturesInfo={setPicturesInfo}
       selectedPicture={selectedPicture}
-      setSelectedPicture={setSelectedPicture}
+      setSelectedPicture={handleSetSelectedPicture}
       windowWidth={windowWidth}
+      wisdom={selectedWisdom}
     />
   );
 }

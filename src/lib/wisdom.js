@@ -1,4 +1,4 @@
-export const wisdome = [
+export const wisdom = [
   { joke: "Don't swim against the current until you've debugged the waves." },
   { joke: "A dolphin in the IDE is worth two in the documentation." },
   { joke: "When you hit a wall, ride the dolphin's back." },

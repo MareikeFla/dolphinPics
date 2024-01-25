@@ -36,11 +36,13 @@ export default function Gallery({
             quality={40}
             loading="eager"
             className={
-              selectedPicture.picpath === pic.picpath
+              selectedPicture === pic
                 ? "my-2 cursor-pointer w-[90%] h-auto"
                 : "my-2 lg:opacity-35 cursor-pointer w-[90%] h-auto"
             }
-            onClick={() => setSelectedPicture(pic)}
+            onClick={() => {
+              setSelectedPicture(pic);
+            }}
           ></Image>
         ))}
       </div>

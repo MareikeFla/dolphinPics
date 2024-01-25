@@ -1,4 +1,4 @@
-export const slugInfo = [
+export const slugInfos = [
   {
     slug: "october",
     month: "October",

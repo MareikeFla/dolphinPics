@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import { slugInfo } from "@/slugInfo";
+import { slugInfos } from "@/slugInfos";
 import Gallery from "../Components/Gallery";
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "@/Components/Footer";
 import About from "@/Components/About";
 import Header from "@/Components/Header";
@@ -11,44 +11,36 @@ export default function Month({
   selectedPicture,
   setSelectedPicture,
   windowWidth,
+  wisdom,
 }) {
   const router = useRouter();
-  let { slug } = router.query;
+  const { slug } = router.query;
+  const slugInfo = slugInfos.find((month) => month.slug === slug);
+  const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
 
-  function handleNavigationClick(month) {
-    const container = document.querySelector(".Gallery-Pictures");
-    container.scrollTo(0, 0);
-    const copyPicturesInfo = [...picturesInfo];
-    const filteredPicturesInfo = copyPicturesInfo.filter(
-      (p) => p.month === month
-    );
+  useEffect(() => {
     const firstPicture = filteredPicturesInfo[0];
-
     if (firstPicture) {
       setSelectedPicture(firstPicture);
-      return;
+    } else {
+      const randomPicture =
+        picturesInfo[Math.floor(Math.random() * picturesInfo.length)];
+      if (randomPicture) {
+        setSelectedPicture(randomPicture);
+      }
     }
-    const randomPicture =
-      picturesInfo[Math.floor(Math.random() * picturesInfo.length)];
-    setSelectedPicture(randomPicture);
-  }
+  }, [slug]);
 
-  const currentMonth = slugInfo.find((month) => month.slug === slug);
-
-  if (!currentMonth) {
+  if (!slugInfo) {
     return null;
   }
+  if (!selectedPicture) {
+    return;
+  }
 
-  const filteredPicturesInfo = picturesInfo.filter(
-    (p) => p.month === currentMonth.slug
-  );
   return (
     <>
-      <Header
-        currentMonth={currentMonth}
-        handleNavigationClick={handleNavigationClick}
-        windowWidth={windowWidth}
-      ></Header>
+      <Header currentMonth={slugInfo.month} windowWidth={windowWidth}></Header>
       {slug !== "about" ? (
         <Gallery
           filteredPicturesInfo={filteredPicturesInfo}
@@ -59,7 +51,7 @@ export default function Month({
       ) : (
         <About></About>
       )}
-      <Footer></Footer>
+      <Footer wisdom={wisdom}></Footer>
     </>
   );
 }
