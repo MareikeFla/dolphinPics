@@ -40,7 +40,11 @@ export default function Month({
 
   return (
     <>
-      <Header currentMonth={slugInfo.month} windowWidth={windowWidth}></Header>
+      <Header
+        currentMonth={slugInfo}
+        windowWidth={windowWidth}
+        router={router}
+      ></Header>
       {slug !== "about" ? (
         <Gallery
           filteredPicturesInfo={filteredPicturesInfo}
