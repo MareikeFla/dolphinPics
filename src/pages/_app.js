@@ -4,7 +4,13 @@ import Papa from "papaparse";
 import { wisdom } from "@/lib/wisdom";
 
 export default function App({ Component, pageProps }) {
-  const [selectedPicture, setSelectedPicture] = useState(null);
+  const [selectedPicture, setSelectedPicture] = useState({
+    month: "january",
+    picpath: "08012024.webp",
+    width: 1024,
+    height: 1024,
+    alt: "",
+  });
 
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
 
