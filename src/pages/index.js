@@ -5,6 +5,8 @@ export default function Main() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/january");
+    if (router.pathname === "/") {
+      router.push("/january");
+    }
   }, [router]);
 }
