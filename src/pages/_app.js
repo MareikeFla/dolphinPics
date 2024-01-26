@@ -6,7 +6,7 @@ import { wisdom } from "@/lib/wisdom";
 export default function App({ Component, pageProps }) {
   console.log("App start");
   const [selectedPicture, setSelectedPicture] = useState({
-    month: "placeholder",
+    month: "january",
     picpath: "Portrait_Placeholder.png",
     width: 500,
     height: 500,
