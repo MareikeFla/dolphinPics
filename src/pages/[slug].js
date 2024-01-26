@@ -16,11 +16,13 @@ export default function Month({
   const router = useRouter();
   const { slug } = router.query;
   const slugInfo = slugInfos.find((month) => month.slug === slug);
+
   const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
 
   useEffect(() => {
     console.log("useEffect from [slug.js started]");
     console.log("filteredPicturesInfo: ", filteredPicturesInfo);
+    console.log(slug);
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
       setSelectedPicture(firstPicture);
