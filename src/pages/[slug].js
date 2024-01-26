@@ -13,21 +13,13 @@ export default function Month({
   windowWidth,
   wisdom,
 }) {
-  console.log("slug start");
-  console.log("slug start selected Picture: ", selectedPicture);
-  console.log("slug  picturesInfo: ", picturesInfo);
-
   const router = useRouter();
   const { slug } = router.query;
   const slugInfo = slugInfos.find((month) => month.slug === slug);
   const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
-  console.log("slug  filteredPicturesInfo : ", filteredPicturesInfo);
 
   useEffect(() => {
-    // console.log("slug useEffect start");
-    // console.log("slug useEffect start: ", selectedPicture);
-    // console.log("slug useEffect filteredPicturesInfo : ", filteredPicturesInfo);
-
+    console.log("useEffect from [slug.js started]");
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
       setSelectedPicture(firstPicture);
@@ -43,10 +35,6 @@ export default function Month({
   if (!slugInfo) {
     return null;
   }
-
-  console.log("slug end");
-  console.log("slug  end selected picture: ", selectedPicture);
-  console.log("slug  filteredPicturesInfo : ", filteredPicturesInfo);
 
   return (
     <>

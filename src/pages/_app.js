@@ -4,7 +4,6 @@ import Papa from "papaparse";
 import { wisdom } from "@/lib/wisdom";
 
 export default function App({ Component, pageProps }) {
-  console.log("App start");
   const [selectedPicture, setSelectedPicture] = useState({
     month: "january",
     picpath: "Portrait_Placeholder.png",
@@ -13,10 +12,8 @@ export default function App({ Component, pageProps }) {
     alt: "",
     initial: true,
   });
-  console.log("App start, initial selected Picture: ", selectedPicture);
 
   const [picturesInfo, setPicturesInfo] = useState([]);
-  console.log("App start, initial  picturesInfo: ", picturesInfo);
 
   const [selectedWisdom, setSelectedWisdom] = useState(selectWisdom());
 
@@ -27,16 +24,11 @@ export default function App({ Component, pageProps }) {
   function handleSetSelectedPicture(picture) {
     setSelectedWisdom(selectWisdom());
     if (picture) {
-      console.log("handleSetSelectedPicture");
       setSelectedPicture(picture);
     }
   }
 
   useEffect(() => {
-    console.log("App useEffect start");
-    console.log("App useEffect  selected picture: ", selectedPicture);
-    console.log("App useEffect  pictureInfos: ", picturesInfo);
-
     async function readCSV() {
       try {
         const response = await fetch("/pictureInfo.csv");
@@ -48,7 +40,6 @@ export default function App({ Component, pageProps }) {
         Papa.parse(csv, {
           header: true,
           complete: (result) => {
-            console.log("App useEffect setPictureInfo call");
             setPicturesInfo(result.data);
           },
         });
@@ -57,7 +48,6 @@ export default function App({ Component, pageProps }) {
       }
     }
     readCSV();
-    console.log("App useEffect  pictureInfos: ", picturesInfo);
 
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -68,17 +58,11 @@ export default function App({ Component, pageProps }) {
     }
 
     window.addEventListener("resize", handleResize);
-    console.log("App useEffect end");
-    console.log("App useEffect end: ", selectedPicture);
-    console.log("App useEffect end pictureInfos: ", picturesInfo);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const [windowWidth, setWindowWidth] = useState(0);
-  console.log("App end");
-  console.log("App  end: ", selectedPicture);
-  console.log("App  end pictureInfos: ", picturesInfo);
 
   return (
     <Component

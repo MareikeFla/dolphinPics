@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-
 export default function Main() {
-  const router = useRouter();
+  return null;
+}
 
-  useEffect(() => {
-    if (router.pathname === "/") {
-      router.push("/january");
-    }
-  }, [router]);
+export async function getServerSideProps(context) {
+  return {
+    redirect: {
+      destination: "/january",
+      permanent: false,
+    },
+  };
 }
