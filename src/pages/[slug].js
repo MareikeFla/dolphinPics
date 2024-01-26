@@ -20,10 +20,14 @@ export default function Month({
   console.log("log slug in [slug].js slug: ", slug);
 
   const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
+  console.log("log filteredPicturesInfo in [slug].js: ", filteredPicturesInfo);
 
   useEffect(() => {
     console.log("useEffect from [slug.js started]");
-    console.log("filteredPicturesInfo: ", filteredPicturesInfo);
+    console.log(
+      "log filteredPicturesInfo in useEffect: ",
+      filteredPicturesInfo
+    );
     console.log("log slug in useEffect slug: ", slug);
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
