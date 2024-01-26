@@ -24,6 +24,7 @@ export default function Month({
   // useEffect 1
   useEffect(() => {
     console.log("useEffect1 from [slug.js started]");
+    console.log("log slug in useEffect1 : ", slug);
     const filteredPictures = picturesInfo.filter((p) => p.month === slug);
     console.log("log filteredPictures in useEffect1: ", filteredPictures);
     setFilteredPicturesInfo(filteredPictures);
@@ -48,7 +49,7 @@ export default function Month({
         setSelectedPicture(randomPicture);
       }
     }
-  }, [filteredPicturesInfo]);
+  }, [filteredPicturesInfo, slug]);
 
   if (!slugInfo) {
     return null;
