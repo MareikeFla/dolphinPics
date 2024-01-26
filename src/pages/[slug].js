@@ -24,9 +24,9 @@ export default function Month({
   console.log("slug  filteredPicturesInfo : ", filteredPicturesInfo);
 
   useEffect(() => {
-    console.log("slug useEffect start");
-    console.log("slug useEffect start: ", selectedPicture);
-    console.log("slug useEffect filteredPicturesInfo : ", filteredPicturesInfo);
+    // console.log("slug useEffect start");
+    // console.log("slug useEffect start: ", selectedPicture);
+    // console.log("slug useEffect filteredPicturesInfo : ", filteredPicturesInfo);
 
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
@@ -36,14 +36,6 @@ export default function Month({
         picturesInfo[Math.floor(Math.random() * picturesInfo.length)];
       if (randomPicture) {
         setSelectedPicture(randomPicture);
-      }
-    }
-    console.log("slug use Effect end");
-    console.log("slug useEffect end: ", selectedPicture);
-    if (selectedPicture.initial === true) {
-      const firstPicture = filteredPicturesInfo[0];
-      if (firstPicture) {
-        setSelectedPicture(firstPicture);
       }
     }
   }, [slug]);
