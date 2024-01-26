@@ -2,7 +2,7 @@ export default function Main() {
   return null;
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   return {
     redirect: {
       destination: "/january",
