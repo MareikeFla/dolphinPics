@@ -22,7 +22,7 @@ export default function Month({
   useEffect(() => {
     console.log("useEffect from [slug.js started]");
     console.log("filteredPicturesInfo: ", filteredPicturesInfo);
-    console.log(slug);
+    console.log("slug: ", slug);
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
       setSelectedPicture(firstPicture);
