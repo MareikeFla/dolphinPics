@@ -42,7 +42,7 @@ export default function Month({
         setSelectedPicture(randomPicture);
       }
     }
-  }, [filteredPicturesInfo, slug]);
+  }, [slug]);
 
   if (!slugInfo) {
     return null;
