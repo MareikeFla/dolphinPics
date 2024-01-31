@@ -17,18 +17,9 @@ export default function Month({
   const router = useRouter();
   const { slug } = router.query;
   const slugInfo = slugInfos.find((month) => month.slug === slug);
-  const [filteredPicturesInfo, setFilteredPicturesInfo] = useState([]);
+  const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
   console.log("log slug in [slug].js slug: ", slug);
   console.log("log filteredPicturesInfo in [slug].js: ", filteredPicturesInfo);
-
-  // useEffect 1
-  useEffect(() => {
-    console.log("useEffect1 from [slug.js started]");
-    console.log("log slug in useEffect1 : ", slug);
-    const filteredPictures = picturesInfo.filter((p) => p.month === slug);
-    console.log("log filteredPictures in useEffect1: ", filteredPictures);
-    setFilteredPicturesInfo(filteredPictures);
-  }, [slug]);
 
   // useEffect 2
 
@@ -39,6 +30,8 @@ export default function Month({
       filteredPicturesInfo
     );
     console.log("log slug in useEffect2 slug: ", slug);
+    const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
+
     const firstPicture = filteredPicturesInfo[0];
     if (firstPicture) {
       setSelectedPicture(firstPicture);
