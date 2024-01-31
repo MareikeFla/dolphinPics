@@ -30,9 +30,9 @@ export default function Month({
       filteredPicturesInfo
     );
     console.log("log slug in useEffect2 slug: ", slug);
-    const filteredPicturesInfo = picturesInfo.filter((p) => p.month === slug);
+    const foo = picturesInfo.filter((p) => p.month === slug);
 
-    const firstPicture = filteredPicturesInfo[0];
+    const firstPicture = foo[0];
     if (firstPicture) {
       setSelectedPicture(firstPicture);
     } else {
