@@ -36,7 +36,7 @@ export default function Month({
     }
   }, [slug]);
 
-  if (!slug || !slugInfo) {
+  if (!slug) {
     return null;
   }
   console.log("[slug].js ended");
