@@ -4,7 +4,7 @@ import BigPicture from "./BigPicture";
 
 export default function Gallery({
   selectedPicture,
-  setSelectedPicture,
+  onPictureSelection,
   filteredPicturesInfo,
   windowWidth,
 }) {
@@ -40,7 +40,7 @@ export default function Gallery({
                 ? "my-2 cursor-pointer w-[90%] h-auto"
                 : "my-2 lg:opacity-35 cursor-pointer w-[90%] h-auto"
             }
-            onClick={() => setSelectedPicture(pic)}
+            onClick={() => onPictureSelection(pic)}
           ></Image>
         ))}
       </div>

@@ -68,9 +68,8 @@ export default function App({ Component, pageProps }) {
     <Component
       {...pageProps}
       picturesInfo={picturesInfo}
-      setPicturesInfo={setPicturesInfo}
       selectedPicture={selectedPicture}
-      setSelectedPicture={handleSetSelectedPicture}
+      onPictureSelection={handleSetSelectedPicture}
       windowWidth={windowWidth}
       wisdom={selectedWisdom}
     />

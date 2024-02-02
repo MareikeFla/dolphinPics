@@ -9,7 +9,7 @@ import Header from "@/Components/Header";
 export default function Month({
   picturesInfo,
   selectedPicture,
-  setSelectedPicture,
+  onPictureSelection,
   windowWidth,
   wisdom,
 }) {
@@ -21,30 +21,22 @@ export default function Month({
   console.log("log slug in [slug].js slug: ", slug);
   console.log("log filteredPicturesInfo in [slug].js: ", filteredPicturesInfo);
 
-  // useEffect 2
-
   useEffect(() => {
-    console.log("useEffect2 from [slug.js started]");
-    console.log(
-      "log filteredPicturesInfo in useEffect2: ",
-      filteredPicturesInfo
-    );
-    console.log("log slug in useEffect2 slug: ", slug);
     const foo = picturesInfo.filter((p) => p.month === slug);
 
     const firstPicture = foo[0];
     if (firstPicture) {
-      setSelectedPicture(firstPicture);
+      onPictureSelection(firstPicture);
     } else {
       const randomPicture =
         picturesInfo[Math.floor(Math.random() * picturesInfo.length)];
       if (randomPicture) {
-        setSelectedPicture(randomPicture);
+        onPictureSelection(randomPicture);
       }
     }
   }, [slug]);
 
-  if (!slugInfo) {
+  if (!slug || !slugInfo) {
     return null;
   }
   console.log("[slug].js ended");
@@ -60,7 +52,7 @@ export default function Month({
         <Gallery
           filteredPicturesInfo={filteredPicturesInfo}
           selectedPicture={selectedPicture}
-          setSelectedPicture={setSelectedPicture}
+          onPictureSelection={onPictureSelection}
           windowWidth={windowWidth}
         ></Gallery>
       ) : (
